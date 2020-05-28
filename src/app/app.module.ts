@@ -4,15 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BottombarComponent } from './bottombar/bottombar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ShowquoteComponent } from './showquote/showquote.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BottombarComponent
+    BottombarComponent,
+    ShowquoteComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
