@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BottombarComponent } from './bottombar/bottombar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowquoteComponent } from './showquote/showquote.component';
+import { QuoteService } from './quote.service';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { ShowquoteComponent } from './showquote/showquote.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [QuoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
