@@ -1,6 +1,8 @@
-<p class="today">{{today | date:'MMMM dd, yyyy'}}</p> 
+
 <h2>Quote of the day: {{dayquote}}</h2>
-<ul *ngFor="let quote of quotes">
-    <li>{{quote.quote}} - {{quote.author}} </li>
-    <li>{{quote.post_date}} - {{quote.link}} </li>
-</ul>
+<div class="image" >
+    <ul *ngFor="let quote of quotes">
+        <li>{{quote.quote}} - {{quote.author}} </li>
+        <li>{{quote.post_date}} - {{quote.link}} </li>
+    </ul>    
+</div>

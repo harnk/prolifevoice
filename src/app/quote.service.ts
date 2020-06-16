@@ -19,7 +19,7 @@ export class QuoteService {
   }
 
   getQuoteOfTheDay(): string{
-    return "this is it baby";
+    return "return string";
   }
 
 }

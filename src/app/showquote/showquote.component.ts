@@ -9,8 +9,6 @@ import { QuoteService } from '../quote.service';
 export class ShowquoteComponent implements OnInit {
 
   public quotes = [];
-  public todayz = "JANUARY 22, 2020";
-  public today = Date.now();
   public dayquote = "";
 
   constructor(private _quoteService: QuoteService) { }
