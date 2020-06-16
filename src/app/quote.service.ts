@@ -19,7 +19,7 @@ export class QuoteService {
   }
 
   getQuoteOfTheDay(): string{
-    return "return string";
+    return "return quote string here";
   }
 
 }
