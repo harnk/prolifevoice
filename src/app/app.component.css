@@ -21,6 +21,10 @@
     margin: 0;
   }
 
+  .debug {
+    visibility: hidden;
+  }
+
   .today {
     font-family: 'PT Sans', sans-serif;
     font-size: 28px;

@@ -1,4 +1,18 @@
-.card-container {
+.debug {
+    visibility: hidden;
+}
+
+.title-above-card {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+    color: #81A0B7;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    line-height: 20px;
+  }
+
+  .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

@@ -4,14 +4,11 @@
   <img src="assets/images/logo.svg">
   <!-- Todays Date -->
   <div class="today">{{today | date:'MMMM dd, yyyy' | uppercase}}</div>
-
   <!-- router outlet -->
-  <!-- <app-showquote></app-showquote> -->
-  router-outlet  
+  <div class="debug">router-outlet </div> 
   <router-outlet></router-outlet> 
-  router-outlet
+  <div class="debug">router-outlet </div> 
   <!-- end router outlet -->
-
 
   <app-bottombar></app-bottombar>
 
