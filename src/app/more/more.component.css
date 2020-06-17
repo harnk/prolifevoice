@@ -16,7 +16,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 16px;
   }
   .card svg.material-icons path {
     fill: #888;
