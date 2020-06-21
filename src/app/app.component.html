@@ -1,15 +1,23 @@
-<div class="content" role="main">
+<div class="container">
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li><a routerLinkActive="active" routerLink="home">Home</a></li>
+      <li><a routerLinkActive="active" routerLink="more">More</a></li>
+      <li><a routerLinkActive="active" routerLink="share">Share</a></li>
+      <li><a routerLinkActive="active" routerLink="search">Search</a></li>
+      <li><a routerLinkActive="active" routerLink="search-results">Results</a></li>
+    </ul>
+  </nav> 
+</div>
 
+<div class="content" role="main">
   <!-- Logo -->
   <img src="assets/images/logo.svg">
   <!-- Todays Date -->
   <div class="today">{{today | date:'MMMM dd, yyyy' | uppercase}}</div>
   <!-- router outlet -->
-  <div class="debug">router-outlet </div> 
   <router-outlet></router-outlet> 
-  <div class="debug">router-outlet </div> 
   <!-- end router outlet -->
-
   <app-bottombar></app-bottombar>
 
 </div>

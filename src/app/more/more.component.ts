@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-more',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./more.component.css']
 })
 export class MoreComponent implements OnInit {
-
+  searchForm: FormGroup;
   constructor() { }
 
   ngOnInit(): void {
+    this.searchForm = new FormGroup({
+      searchText: new FormControl()
+    });
+  }
+
+  onSubmit(): void {
+    console.log(this.searchForm);
+    console.log(this.searchForm.controls.searchText.value);
+    console.log(this.searchForm.get('searchText').value);
   }
 
 }

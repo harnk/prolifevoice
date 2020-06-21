@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'more', component: MoreComponent },
   { path: 'search', component: SearchComponent },
   { path: 'search-results', component: SearchResultsComponent },
-  { path: 'share', component: ShareComponent }
+  { path: 'share', component: ShareComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
