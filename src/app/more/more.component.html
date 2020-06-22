@@ -50,12 +50,12 @@
       </a>
       
       <div class="title-above-card">SEARCH</div>
-      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="form-horizontal">
-        <a class="card" target="_blank" rel="noopener" >
-          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-          <input id="searchText" formControlName="searchText" type="text" class="form-control">
-          <button class="btn btn-primary" type="submit">Go</button>
-        </a>  
-      </form>
+        <div class="card"  >
+          <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            <input id="searchText" formControlName="searchText" type="text" class="form-control">
+            <button class="btn btn-primary" type="submit">Go</button>
+          </form>
+        </div>  
   
   </div>

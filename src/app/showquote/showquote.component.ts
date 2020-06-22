@@ -16,8 +16,17 @@ export class ShowquoteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._quoteService.getQuotes().subscribe(data => this.quotes = data);
-    this._quoteService.getQuoteOfTheDay().subscribe(data => this.dayquote = data);
+    this._quoteService.getQuotes().subscribe(quoteList => this.quotes = quoteList);
+    this._quoteService.getQuoteOfTheDay().subscribe((qotd) => {
+      // add a check for qotd[].post_date == today then return that quote
+      this.dayquote = qotd[1].quote;
+      console.log('this.dayquote[: ' + this.dayquote);
+    });
+  }
+
+  gotData(): IQuote[] {
+    var dayq = null;
+    return dayq;
   }
 
 }
