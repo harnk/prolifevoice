@@ -5,6 +5,6 @@ export interface IQuote {
     link: string,
     video: string;
     metadata: string,
-    postdate: string,
+    post_date: string,
     numberoftimesposted: number
 }
