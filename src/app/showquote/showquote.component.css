@@ -1,9 +1,19 @@
 .today {
     font-family: 'PT Sans', sans-serif;
   }
-
-.image{
-  height:40em; background-size:cover; width:auto;
+  .mainquote{
+    font-family: 'PT Serif', serif;
+    font-size: 34px;
+    padding: 70px 30px;
+    text-align: center;
+  }
+  .mainauthor{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 34px;
+    text-align: center;
+  }
+  .image{
+  height:40em; background-size:cover; width:auto; 
   background-image:url('/assets/images/quote_area.png');
   background-position:50% 50%;
 }

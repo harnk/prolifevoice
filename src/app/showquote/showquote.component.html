@@ -1,11 +1,16 @@
-
-<h2>QOTD: {{dayquote}}</h2>
 <ng-container >
-    <h3>wallawalla: {{ dayquote }}</h3>
+    <div class="image" >
+        <div class="mainquote">{{ dayquote }}</div>
+    </div>
+    <div class="mainauthor">
+        {{ authorquote | uppercase }}
+    </div>
+        
+        <!-- <ul *ngFor="let quote of quotes">
+            <li>{{quote.quote}} - {{quote.author}} </li>
+            <li>{{quote.post_date}} - {{quote.link}} </li>
+        </ul>     -->
+    <!-- </div> -->
 </ng-container>
-<div class="image" >
-    <ul *ngFor="let quote of quotes">
-        <li>{{quote.quote}} - {{quote.author}} </li>
-        <li>{{quote.post_date}} - {{quote.link}} </li>
-    </ul>    
-</div>
+
+

@@ -11,6 +11,7 @@ export class ShowquoteComponent implements OnInit {
 
   public quotes = [];
   public dayquote = "";
+  public authorquote = ""
 
   constructor(private _quoteService: QuoteService) { 
   }
@@ -24,13 +25,15 @@ export class ShowquoteComponent implements OnInit {
       var datestr = formatDate(tday);
       console.log('datestr: '+datestr);
 
-      // ??need to set some default quote if the date isnt found
+      // ?? need to set some default quote if the date isnt found
 
       for (var i = 0; i < qotd.length; i++) {
         if (datestr === qotd[i].post_date) {
           console.log('FOUND IT ' + datestr)
+          // Set the quote of the day
           this.dayquote = qotd[i].quote;
           console.log('this.dayquote: ' + this.dayquote);
+          this.authorquote = qotd[i].author;
         }
       }
     });
