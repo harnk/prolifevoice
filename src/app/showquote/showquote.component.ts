@@ -33,7 +33,7 @@ export class ShowquoteComponent implements OnInit {
           // Set the quote of the day
           this.dayquote = qotd[i].quote;
           console.log('this.dayquote: ' + this.dayquote);
-          this.authorquote = qotd[i].author;
+          this.authorquote = qotd[i].author ;
         }
       }
     });

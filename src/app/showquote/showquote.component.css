@@ -1,5 +1,9 @@
-.today {
+
+  .morelink {
     font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    color: #81A0B7;
+    text-align: center;
   }
   .mainquote{
     font-family: 'PT Serif', serif;
@@ -13,7 +17,7 @@
     text-align: center;
   }
   .image{
-  height:40em; background-size:cover; width:auto; 
-  background-image:url('/assets/images/quote_area.png');
-  background-position:50% 50%;
-}
+    height:40em; background-size:cover; width:auto; 
+    background-image:url('/assets/images/quote_area.png');
+    background-position:50% 50%;
+  }

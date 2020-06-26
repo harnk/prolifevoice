@@ -1,2 +1,9 @@
 <!-- <p class="debug">home works!</p> -->
-<app-showquote></app-showquote>
+<div class="content">
+  <!-- Logo -->
+  <img src="assets/images/logo.svg">
+  <!-- Todays Date -->
+  <div class="today">{{today | date:'MMMM dd, yyyy' | uppercase}}</div>
+
+  <app-showquote></app-showquote>
+</div>

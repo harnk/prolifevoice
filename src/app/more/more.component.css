@@ -3,14 +3,14 @@
 }
 
 .title-above-card {
-    font-family: 'PT Sans', sans-serif;
-    font-size: 18px;
-    color: #81A0B7;
-    margin-top: 8px;
-    display: flex;
-    justify-content: center;
-    line-height: 20px;
-  }
+  font-family: 'PT Sans', sans-serif;
+  font-size: 18px;
+  color: #81A0B7;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  line-height: 20px;
+ }
 
   .card-container {
     display: flex;
@@ -28,7 +28,7 @@
     height: 40px;
     width: 200px;
     margin: 0 8px 16px;
-    padding: 16px;
+    padding: 28px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -36,6 +36,7 @@
     transition: all 0.2s ease-in-out;
     line-height: 24px;
     font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
   }
 
   .card-container .card:not(:last-child) {
@@ -80,6 +81,11 @@
     height: 16px;
     width: 16px;
     margin-right: 4px;
+  }
+
+  input[type="text"], textarea {
+    width: 28em;
+    background-color : #25AAE1; 
   }
 
   /* Responsive Styles */
