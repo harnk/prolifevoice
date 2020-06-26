@@ -86,6 +86,7 @@
   input[type="text"], textarea {
     width: 28em;
     background-color : #25AAE1; 
+    border: 1px solid #25AAE1;
   }
 
   /* Responsive Styles */
