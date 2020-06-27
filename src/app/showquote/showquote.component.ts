@@ -12,7 +12,8 @@ export class ShowquoteComponent implements OnInit {
   public quotes = [];
   public dayquote = "";
   public authorquote = ""
-
+  public datestr = "";
+  
   constructor(private _quoteService: QuoteService) { 
   }
 
@@ -22,40 +23,48 @@ export class ShowquoteComponent implements OnInit {
       // add a check for qotd[].post_date == today then return that quote
       var q = new Date();
       var tday = new Date(q.getFullYear(),q.getMonth(),q.getDate());
-      var datestr = formatDate(tday);
+      var datestr = this.formatDate(tday);
       console.log('datestr: '+datestr);
-
-      // ?? need to set some default quote if the date isnt found
-
-      for (var i = 0; i < qotd.length; i++) {
-        if (datestr === qotd[i].post_date) {
-          console.log('FOUND IT ' + datestr)
-          // Set the quote of the day
-          this.dayquote = qotd[i].quote;
-          console.log('this.dayquote: ' + this.dayquote);
-          this.authorquote = qotd[i].author ;
-        }
-      }
+      this.setQuoteAndAuthor(qotd, datestr);
     });
+  }
 
-    function formatDate(date) {
-      var d = new Date(date),
-          month = '' + (d.getMonth() + 1),
-          day = '' + d.getDate(),
-          year = d.getFullYear();
-  
-      if (month.length < 2) 
-          month = '0' + month;
-      if (day.length < 2) 
-          day = '0' + day;
-  
-      return [year, month, day].join('-');
+  private setQuoteAndAuthor(qotd: IQuote[], datestr: string) {      
+    // ?? need to set some default quote if the date isnt found
+    for (var i = 0; i < qotd.length; i++) {
+      if (datestr === qotd[i].post_date) {
+        console.log('FOUND IT ' + datestr);
+        // Set the quote of the day
+        this.dayquote = qotd[i].quote;
+        console.log('this.dayquote: ' + this.dayquote);
+        this.authorquote = qotd[i].author;
+      }
     }
   }
 
+  private formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
 
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
 
-  gotData(): IQuote[] {
+    return [year, month, day].join('-');
+  }
+
+  private back() {
+    console.log("back");
+  }
+
+  private forward() {
+    console.log("forward");
+  }
+
+  private gotData(): IQuote[] {
     var dayq = null;
     return dayq;
   }
