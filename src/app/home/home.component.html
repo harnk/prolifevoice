@@ -5,5 +5,28 @@
   <!-- Todays Date -->
   <div class="today">{{today | date:'MMMM dd, yyyy' | uppercase}}</div>
 
-  <app-showquote></app-showquote>
+  <!-- <app-showquote></app-showquote> -->
+
+
+  <ng-container >
+    <div class="image" >
+        <div class="mainquote">{{ dayquote }}</div>
+    </div>
+    <div class="mainauthor">
+        {{ authorquote | uppercase }}
+    </div>
+    <div class="morelink" >
+        <a routerLinkActive="active" routerLink="../more">MORE</a>
+    </div>
+  </ng-container>
+
+
+        <!-- <ul *ngFor="let quote of quotes">
+            <li>{{quote.quote}} - {{quote.author}} </li>
+            <li>{{quote.post_date}} - {{quote.link}} </li>
+        </ul>     -->
+
+
+
+
 </div>
