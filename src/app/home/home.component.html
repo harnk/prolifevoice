@@ -10,7 +10,8 @@
 
   <ng-container >
     <div class="image" >
-        <div class="mainquote">{{ dayquote }}</div>
+      <div >{{ items[0].author }}</div>
+      <div class="mainquote">{{ dayquote }}</div>
     </div>
     <div class="mainauthor">
         {{ authorquote | uppercase }}
@@ -20,11 +21,16 @@
     </div>
   </ng-container>
 
+  <button class="morelink" (click)="previous()">previous</button>
+  <button class="morelink" (click)="next()">next</button>
 
-        <!-- <ul *ngFor="let quote of quotes">
-            <li>{{quote.quote}} - {{quote.author}} </li>
-            <li>{{quote.post_date}} - {{quote.link}} </li>
-        </ul>     -->
+  <div *ngFor="let item of items" [class.active]="item === activeItem">{{ activeItem.author }}</div>
+  <!-- <div *ngFor="let item of items" [class.active]="item === activeItem">{{ item.author }}</div> -->
+
+
+        <ul *ngFor="let item of items">
+            <li class="hideorshow">{{item.quote}} - {{item.author}} -- {{item.post_date}} - {{item.link}} </li>
+        </ul>    
 
 
 

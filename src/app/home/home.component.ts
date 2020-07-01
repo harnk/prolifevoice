@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
   public today = Date.now();
   public id = "";
   public dayadjust = 0;
-  public quotes = [];
+  public items: Array<IQuote> = [];
+  public activeItem: IQuote;
   public dayquote = "";
   public authorquote = ""
   public datestr = "";
@@ -33,7 +34,7 @@ export class HomeComponent implements OnInit {
     // work on this https://www.tektutorialshub.com/angular/angular-passing-parameters-to-route/
 
     // console.log(params.get('id'));
-    this._quoteService.getQuotes().subscribe(quoteList => this.quotes = quoteList);
+    this._quoteService.getQuotes().subscribe(quoteList => this.items = quoteList);
     this._quoteService.getQuoteOfTheDay().subscribe((qotd) => {
       // add a check for qotd[].post_date == today then return that quote
       var q = new Date();
@@ -42,9 +43,11 @@ export class HomeComponent implements OnInit {
       var x = this.id;
       var y: number = +x;
       this.dayadjust = this.dayadjust + y;
+      console.log("dayadjust = " + this.dayadjust);
       var datestr = this.formatDate(tday, y);
       console.log('datestr: '+datestr);
       this.setQuoteAndAuthor(qotd, datestr);
+       
     });
   }
 
@@ -57,6 +60,7 @@ export class HomeComponent implements OnInit {
         this.dayquote = qotd[i].quote;
         console.log('this.dayquote: ' + this.dayquote);
         this.authorquote = qotd[i].author;
+        this.activeItem = qotd[i];
       }
     }
   }
@@ -75,5 +79,17 @@ export class HomeComponent implements OnInit {
     return [year, month, day].join('-');
   }
 
+  public previous() {
+    const currentIndex = this.items.indexOf(this.activeItem);
+    const newIndex = currentIndex === 0 ? this.items.length - 1 : currentIndex - 1;
+    this.activeItem = this.items[newIndex];
+  }
+
+  public next() {
+    const currentIndex = this.items.indexOf(this.activeItem);
+    const newIndex = currentIndex === this.items.length - 1 ? 0 : currentIndex + 1;
+    this.activeItem = this.items[newIndex];
+    console.log("next clicked ");
+  }
 
 }

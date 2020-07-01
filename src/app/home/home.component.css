@@ -9,7 +9,7 @@
     color: white;
   }
 
-.today {
+  .today {
     margin-top: 50px;
     font-family: 'PT Sans', sans-serif;
     font-size: 28px;
@@ -23,11 +23,13 @@
     color: #81A0B7;
     text-align: center;
   }
+
   .mainquote{
     font-family: 'PT Serif', serif;
     font-size: 34px;
-    padding: 70px 30px;
+    padding: 80px 30px 120px 30px;
     text-align: center;
+    visibility: visible;
   }
   .mainauthor{
     font-family: 'PT Sans', sans-serif;
@@ -35,8 +37,18 @@
     text-align: center;
   }
   .image{
+    /* height:400px;  */
+    /* width:100%;  */
+    /* display: flex; */
+    background-image:url('/assets/images/quote_area.png');
+    background-position:100% 50%;
+  }
+  /* .image{
     height:40em; background-size:cover; width:auto; 
     background-image:url('/assets/images/quote_area.png');
     background-position:50% 50%;
+  } */
+  .hideorshow{
+    visibility: hidden;
   }
 
