@@ -10,11 +10,13 @@
 
   <ng-container >
     <div class="image" >
-      <div >{{ items[0].author }}</div>
-      <div class="mainquote">{{ dayquote }}</div>
+      <div >{{ activeItem.author }}</div>
+      <!-- <div class="mainquote">{{ dayquote }}</div> -->
+      <div class="mainquote">{{ activeItem.quote }}</div>
     </div>
     <div class="mainauthor">
-        {{ authorquote | uppercase }}
+      {{ activeItem.author | uppercase }}
+      <!-- {{ authorquote | uppercase }} -->
     </div>
     <div class="morelink" >
         <a routerLinkActive="active" routerLink="../more">MORE</a>
