@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   public dayquote = "";
   public authorquote = ""
   public datestr = "";
+  private homeIndex: number;
 
   constructor(private _quoteService: QuoteService, private _Activatedroute:ActivatedRoute) { 
   }
@@ -61,6 +62,7 @@ export class HomeComponent implements OnInit {
         console.log('this.dayquote: ' + this.dayquote);
         this.authorquote = qotd[i].author;
         this.activeItem = qotd[i];
+        this.homeIndex = i;
       }
     }
   }
@@ -90,6 +92,11 @@ export class HomeComponent implements OnInit {
     const newIndex = currentIndex === this.items.length - 1 ? 0 : currentIndex + 1;
     this.activeItem = this.items[newIndex];
     console.log("next clicked ");
+  }
+
+  public home() {
+    this.activeItem = this.items[this.homeIndex];
+    console.log("home clicked ");
   }
 
 }
