@@ -37,11 +37,11 @@
     text-align: center;
   }
   .image{
-    /* height:400px;  */
+    height:400px; 
     /* width:100%;  */
-    /* display: flex; */
+    display: flex;
     background-image:url('/assets/images/quote_area.png');
-    background-position:100% 50%;
+    /* background-position:100% 50%; */
   }
   /* .image{
     height:40em; background-size:cover; width:auto; 
