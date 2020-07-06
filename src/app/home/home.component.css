@@ -1,6 +1,6 @@
 .content {
     display: flex; 
-    margin: 42px auto 32px;
+    margin: 12px auto 32px;
     padding: 0 0px;
     max-width: 960px;
     flex-direction: column;
@@ -10,7 +10,7 @@
   }
 
   .today {
-    margin-top: 50px;
+    margin-top: 10px;
     font-family: 'PT Sans', sans-serif;
     font-size: 28px;
     color: #81A0B7;
@@ -27,7 +27,7 @@
   .mainquote{
     font-family: 'PT Serif', serif;
     font-size: 34px;
-    padding: 80px 30px 120px 30px;
+    padding: 20px 30px 20px 30px;
     text-align: center;
     visibility: visible;
   }
@@ -36,18 +36,15 @@
     font-size: 34px;
     text-align: center;
   }
-  .image{
-    height:400px; 
-    /* width:100%;  */
-    display: flex;
-    background-image:url('/assets/images/quote_area.png');
-    /* background-position:100% 50%; */
+  .logo{
+    height:100px; 
   }
-  /* .image{
-    height:40em; background-size:cover; width:auto; 
-    background-image:url('/assets/images/quote_area.png');
-    background-position:50% 50%;
-  } */
+  .qtop{
+    width:100%; 
+  }
+  .qbottom{
+    width:100%; 
+  }
   .hideorshow{
     visibility: visible;
   }

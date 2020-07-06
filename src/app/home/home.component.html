@@ -1,22 +1,24 @@
 <!-- <p class="debug">home works!</p> -->
 <div class="content">
   <!-- Logo -->
-  <img src="assets/images/logo.svg">
+  <img class="logo" src="assets/images/logo.svg">
   <!-- Todays Date -->
   <div class="today">{{today | date:'MMMM dd, yyyy' | uppercase}}</div>
   <!-- <div class="today">{{activeItem.post_date | date:'MMMM dd, yyyy' | uppercase}}</div> -->
 
   <ng-container >
-    <div class="image" >
+    <div >
+      <img class="qtop" src="assets/images/quote_top.png">
       <!-- <div class="mainquote">{{ dayquote }}</div> -->
       <div class="mainquote">{{ activeItem.quote }}</div>
+      <img class="qbottom" src="assets/images/quote_bottom.png">
     </div>
     <div class="mainauthor">
-      {{ activeItem.author | uppercase }}
+      {{ activeItem.author | uppercase }} -- {{ activeItem.id }}
       <!-- {{ authorquote | uppercase }} -->
     </div>
     <div class="morelink" >
-        <a routerLinkActive="active" routerLink="../more">MORE</a>
+        <a routerLinkActive="active" [routerLink]="['../more', '1']">MORE</a>
     </div>
   </ng-container>
 

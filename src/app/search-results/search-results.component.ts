@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { QuoteService } from '../quote.service';
+import { IQuote } from '../quote';
 
 @Component({
   selector: 'app-search-results',
@@ -7,9 +10,69 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
 
-  constructor() { }
+  public today = Date.now();
+  public dayadjust = 0;
+  public items: Array<IQuote> = [];
+  public activeItem: IQuote;
+  public datestr = "";
+  private homeIndex: number;
+
+  constructor(private _quoteService: QuoteService, private _Activatedroute:ActivatedRoute) { 
+  }
 
   ngOnInit(): void {
+    console.log("SearchResultComponent init");
+    this._quoteService.getQuotes().subscribe(quoteList => this.items = quoteList);
+    this._quoteService.getQuoteOfTheDay().subscribe((qotd) => {
+      var q = new Date();
+      var tday = new Date(q.getFullYear(),q.getMonth(),q.getDate());
+      var datestr = this.formatDate(tday);
+      console.log('datestr: '+datestr);
+      this.setActiveItemForToday(qotd, datestr);
+    });
+  }
+
+  private setActiveItemForToday(qotd: IQuote[], datestr: string) {      
+    this.homeIndex = 1; // default of date not found
+    for (var i = 0; i < qotd.length; i++) {
+      if (datestr === qotd[i].post_date) {
+        console.log('FOUND IT ' + datestr);
+        this.activeItem = qotd[i];
+        this.homeIndex = i;
+      }
+    }
+  }
+
+  private formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+
+  public previous() {
+    const currentIndex = this.items.indexOf(this.activeItem);
+    const newIndex = currentIndex === 0 ? this.items.length - 1 : currentIndex - 1;
+    this.activeItem = this.items[newIndex];
+  }
+
+  public next() {
+    const currentIndex = this.items.indexOf(this.activeItem);
+    const newIndex = currentIndex === this.items.length - 1 ? 0 : currentIndex + 1;
+    this.activeItem = this.items[newIndex];
+    console.log("next clicked ");
+  }
+
+  public home() {
+    this.activeItem = this.items[this.homeIndex];
+    console.log("home clicked ");
   }
 
 }
