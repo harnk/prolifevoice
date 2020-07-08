@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'home/:id', component: HomeComponent },
   { path: 'more', component: MoreComponent },
+  { path: 'more/:id', component: MoreComponent },
   { path: 'search', component: SearchComponent },
   { path: 'search-results', component: SearchResultsComponent },
   { path: 'share', component: ShareComponent },

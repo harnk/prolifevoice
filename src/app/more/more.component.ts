@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { QuoteService } from '../quote.service';
 import { IQuote } from '../quote';
+
 
 @Component({
   selector: 'app-more',
@@ -9,10 +11,26 @@ import { IQuote } from '../quote';
   styleUrls: ['./more.component.css']
 })
 export class MoreComponent implements OnInit {
+  public id = "";
+  public activeItem: IQuote;
+
   searchForm: FormGroup;
-  constructor() { }
+  constructor(private _quoteService: QuoteService, private _Activatedroute:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this._Activatedroute.paramMap.subscribe(params => { 
+      this.id = params.get('id'); 
+    });
+
+    console.log("passed in id = " + this.id);
+
+    this._quoteService.getQuotes().subscribe((qotd) => {
+      var x = this.id;
+      var y: number = +x;
+      this.activeItem = qotd[y - 1];
+    });
+
     this.searchForm = new FormGroup({
       searchText: new FormControl()
     });

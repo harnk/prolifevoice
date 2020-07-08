@@ -6,7 +6,7 @@
   <div class="today">{{today | date:'MMMM dd, yyyy' | uppercase}}</div>
   <!-- <div class="today">{{activeItem.post_date | date:'MMMM dd, yyyy' | uppercase}}</div> -->
 
-  <ng-container >
+  <ng-container>
     <div >
       <img class="qtop" src="assets/images/quote_top.png">
       <!-- <div class="mainquote">{{ dayquote }}</div> -->
@@ -18,7 +18,7 @@
       <!-- {{ authorquote | uppercase }} -->
     </div>
     <div class="morelink" >
-        <a routerLinkActive="active" [routerLink]="['../more', '1']">MORE</a>
+        <a routerLinkActive="active" [routerLink]="['../more', activeItem.id]">MORE</a>
     </div>
   </ng-container>
 

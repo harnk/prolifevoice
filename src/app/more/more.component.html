@@ -3,30 +3,30 @@
   <div class="card-container">
 
     <div class="title-above-card">QUOTE'S SOURCE</div>
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/tutorial">
-      <span>LINK</span>
+    <a class="card" target="_blank" rel="noopener" href="{{ activeItem.link }}">
+      <span>{{ activeItem.link }}</span>
     </a>
 
     <div class="title-above-card">MORE BY</div>
     <a class="card" target="_blank" rel="noopener" href="https://angular.io/cli">
-      <span>RONALD REAGAN</span>
+      <span>{{ activeItem.author | uppercase }}</span>
     </a>
 
     <div class="title-above-card">MORE ABOUT</div>
     <a class="card" target="_blank" rel="noopener" href="https://blog.angular.io/">
-        <span>PRESIDENTIAL</span>  
+        <span>{{ activeItem.metadata }}</span>  
     </a>
 
     <a class="card" target="_blank" rel="noopener" href="https://blog.angular.io/">
-        <span>LOGIC</span>
+        <span>{{ activeItem.metadata }}</span>
     </a>
 
     <a class="card" target="_blank" rel="noopener" href="https://blog.angular.io/">
-        <span>PROVOKING</span>
+        <span>{{ activeItem.metadata }}</span>
     </a>
 
     <a class="card" target="_blank" rel="noopener" href="https://blog.angular.io/">
-        <span>HUMOR</span>
+        <span>{{ activeItem.metadata }}</span>
     </a>
       
       <div class="title-above-card">SEARCH</div>
