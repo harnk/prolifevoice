@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   public activeItem: IQuote;
   public datestr = "";
   private homeIndex: number;
+  private currentIndex: number;
 
   constructor(private _quoteService: QuoteService, private _Activatedroute:ActivatedRoute) { 
   }
@@ -39,6 +40,7 @@ export class HomeComponent implements OnInit {
         console.log('FOUND IT ' + datestr);
         this.activeItem = qotd[i];
         this.homeIndex = i;
+        this.currentIndex = i;
       }
     }
   }
@@ -58,20 +60,22 @@ export class HomeComponent implements OnInit {
   }
 
   public previous() {
-    const currentIndex = this.items.indexOf(this.activeItem);
+    const currentIndex = this.currentIndex;
     const newIndex = currentIndex === 0 ? this.items.length - 1 : currentIndex - 1;
     this.activeItem = this.items[newIndex];
+    this.currentIndex = newIndex;
   }
 
   public next() {
-    const currentIndex = this.items.indexOf(this.activeItem);
+    const currentIndex = this.currentIndex;
     const newIndex = currentIndex === this.items.length - 1 ? 0 : currentIndex + 1;
     this.activeItem = this.items[newIndex];
-    console.log("next clicked ");
+    this.currentIndex = newIndex;
   }
 
   public home() {
     this.activeItem = this.items[this.homeIndex];
+    this.currentIndex = this.homeIndex;
     console.log("home clicked ");
   }
 
