@@ -13,6 +13,7 @@ import { IQuote } from '../quote';
 export class MoreComponent implements OnInit {
   public id = "";
   public activeItem: IQuote;
+  public moreItems = [];
 
   searchForm: FormGroup;
   constructor(private _quoteService: QuoteService, private _Activatedroute:ActivatedRoute) { }
@@ -29,6 +30,7 @@ export class MoreComponent implements OnInit {
       var x = this.id;
       var y: number = +x;
       this.activeItem = qotd[y - 1];
+      this.moreItems = this.activeItem.metadata.split(",");
     });
 
     this.searchForm = new FormGroup({
