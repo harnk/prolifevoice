@@ -8,13 +8,14 @@ import { ShareComponent } from './share/share.component';
 
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'home/:id', component: HomeComponent },
   { path: 'more', component: MoreComponent },
   { path: 'more/:id', component: MoreComponent },
   { path: 'search-results', component: SearchResultsComponent },
   { path: 'share', component: ShareComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  // { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
 
 @NgModule({
