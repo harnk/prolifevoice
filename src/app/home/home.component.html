@@ -46,18 +46,20 @@
   <a routerLinkActive="active" routerLink="../share" > SHARE </a>
 </div>
 
-<button (click)="openModal('custom-modal-1')">Open Modal 1</button>
-<button (click)="openModal('custom-modal-2')">Open Modal 2</button>
+<button (click)="openModal('share-modal-1')">SHARE</button>
 
-<jw-modal id="custom-modal-1">
-  <h1>A Custom Modal!</h1>
-  <!-- <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p> -->
-  <button (click)="closeModal('custom-modal-1');">Close</button>
-</jw-modal>
+<jw-modal id="share-modal-1">
+  <div style="height:700px">
 
-<jw-modal id="custom-modal-2">
-  <h1 style="height:1000px">A Tall Custom Modal!</h1>
-  <button (click)="closeModal('custom-modal-2');">Close</button>
+    <h1>SHARE ON</h1>
+    <a class="card" target="_blank" rel="noopener" href="https://www.facebook.com/share/ {{ activeItem.quote }}">
+      <span>FACEBOOK</span>
+    </a>
+    <p>INSTAGRAM</p>
+    <p>TWITTER</p>
+
+  </div>
+  <button (click)="closeModal('share-modal-1');">Close</button>  
 </jw-modal>
 
 </div>
