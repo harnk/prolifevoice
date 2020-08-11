@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuoteService } from '../quote.service';
+import { ModalService } from '../_modal';
 import { IQuote } from '../quote';
 
 @Component({
@@ -18,7 +19,9 @@ export class HomeComponent implements OnInit {
   private homeIndex: number;
   private currentIndex: number;
 
-  constructor(private _quoteService: QuoteService, private _Activatedroute:ActivatedRoute) { 
+  constructor(private _quoteService: QuoteService, 
+              private _Activatedroute:ActivatedRoute, 
+              private modalService: ModalService) { 
   }
 
   ngOnInit(): void {
@@ -78,5 +81,14 @@ export class HomeComponent implements OnInit {
     this.currentIndex = this.homeIndex;
     console.log("home clicked ");
   }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
+  }
+
 
 }

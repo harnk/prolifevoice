@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from './_modal';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BottombarComponent } from './bottombar/bottombar.component';
@@ -28,8 +29,9 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ModalModule,
     ReactiveFormsModule
-  ],
+    ],
   providers: [QuoteService],
   bootstrap: [AppComponent]
 })
