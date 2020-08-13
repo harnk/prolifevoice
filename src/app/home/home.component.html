@@ -43,10 +43,8 @@
 </div>
 <!-- Footer -->
 <div class="sharelink">
-  <a routerLinkActive="active" routerLink="../share" > SHARE </a>
+  <a (click)="openModal('share-modal-1')">SHARE</a>
 </div>
-
-<button (click)="openModal('share-modal-1')">SHARE</button>
 
 <jw-modal id="share-modal-1">
   <div style="height:700px">
@@ -55,8 +53,14 @@
     <a class="card" target="_blank" rel="noopener" href="https://www.facebook.com/share/ {{ activeItem.quote }}">
       <span>FACEBOOK</span>
     </a>
+    <div class="fb-share-button" data-href="http://ec2-34-220-88-231.us-west-2.compute.amazonaws.com" data-layout="button" data-size="large">
+      <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fec2-34-220-88-231.us-west-2.compute.amazonaws.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+        FACEBOOK</a>
+    </div>
+    
     <p>INSTAGRAM</p>
-    <p>TWITTER</p>
+    
+    <a class="twitter-share-button"  href="https://twitter.com/intent/tweet?text=&Prime;{{ activeItem.quote }}&Prime; {{ activeItem.author}} " data-size="large"><p>TWITTER</p></a>        
 
   </div>
   <button (click)="closeModal('share-modal-1');">Close</button>  
@@ -65,3 +69,4 @@
 </div>
 
 
+  

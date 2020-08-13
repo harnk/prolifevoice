@@ -11,7 +11,6 @@ import { ShowquoteComponent } from './showquote/showquote.component';
 import { QuoteService } from './quote.service';
 import { HomeComponent } from './home/home.component';
 import { MoreComponent } from './more/more.component';
-import { ShareComponent } from './share/share.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 
 
@@ -22,7 +21,6 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     ShowquoteComponent,
     HomeComponent,
     MoreComponent,
-    ShareComponent,
     SearchResultsComponent
   ],
   imports: [
