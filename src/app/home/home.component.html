@@ -49,18 +49,24 @@
 <jw-modal id="share-modal-1">
   <div style="height:700px">
 
-    <h1>SHARE ON</h1>
-    <a class="card" target="_blank" rel="noopener" href="https://www.facebook.com/share/ {{ activeItem.quote }}">
-      <span>FACEBOOK</span>
-    </a>
-    <div class="fb-share-button" data-href="http://ec2-34-220-88-231.us-west-2.compute.amazonaws.com" data-layout="button" data-size="large">
-      <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fec2-34-220-88-231.us-west-2.compute.amazonaws.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
-        FACEBOOK</a>
+    <div class="title-above-card">SHARE ON</div>
+
+    <div class="card">
+      <a target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fec2-34-220-88-231.us-west-2.compute.amazonaws.com%2F&amp{{activeItem.quote}};src=sdkpreparse" class="fb-xfbml-parse-ignore">
+        <span>FACEBOOK</span>
+      </a>  
+    </div>
+
+    <div class="card">
+      <p>INSTAGRAM</p>
     </div>
     
-    <p>INSTAGRAM</p>
+    <div class="card">
+      <a class="twitter-share-button"  href="https://twitter.com/intent/tweet?text=&Prime;{{ activeItem.quote }}&Prime; {{ activeItem.author}} " data-size="large">
+        <p>TWITTER</p>
+      </a>          
+    </div>
     
-    <a class="twitter-share-button"  href="https://twitter.com/intent/tweet?text=&Prime;{{ activeItem.quote }}&Prime; {{ activeItem.author}} " data-size="large"><p>TWITTER</p></a>        
 
   </div>
   <button (click)="closeModal('share-modal-1');">Close</button>  
