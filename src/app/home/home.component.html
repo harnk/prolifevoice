@@ -47,7 +47,8 @@
 </div>
 
 <jw-modal id="share-modal-1">
-  <div style="height:700px">
+  <a style="color:white" (click)="closeModal('share-modal-1');">X</a>  
+  <div style="height:100%">
 
     <div class="title-above-card">SHARE ON</div>
 
@@ -58,18 +59,21 @@
     </div>
 
     <div class="card">
-      <p>INSTAGRAM</p>
+      <span>INSTAGRAM</span>
     </div>
     
     <div class="card">
-      <a class="twitter-share-button"  href="https://twitter.com/intent/tweet?text=&Prime;{{ activeItem.quote }}&Prime; {{ activeItem.author}} " data-size="large">
-        <p>TWITTER</p>
+      <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=&Prime;{{ activeItem.quote }}&Prime; {{ activeItem.author}}" class="fb-xfbml-parse-ignore">
+        <span>TWITTER</span>
       </a>          
     </div>
-    
+
+    <div class="title-above-card">SIGN UP</div>
+    <a class="card" target="_blank" rel="noopener" href="{{ activeItem.link }}">
+      <span>PUSH NOTIFICATIONS</span>
+    </a>
 
   </div>
-  <button (click)="closeModal('share-modal-1');">Close</button>  
 </jw-modal>
 
 </div>

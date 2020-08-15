@@ -89,8 +89,8 @@
 .title-above-card {
   font-family: 'PT Sans', sans-serif;
   font-size: 18px;
-  color: #81A0B7;
-  margin-top: 8px;
+  color: white;
+  margin-top: 28px;
   display: flex;
   justify-content: center;
   line-height: 20px;
@@ -101,7 +101,7 @@
   background-color: #25AAE1;
   color: white;
   height: 40px;
-  width: 200px;
+  width: 400px;
   margin: 0 8px 16px;
   padding: 28px;
   display: flex;
