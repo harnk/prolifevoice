@@ -39,9 +39,25 @@ export class SearchResultsComponent implements OnInit {
       var tday = new Date(q.getFullYear(),q.getMonth(),q.getDate());
       var datestr = this.formatDate(tday);
       console.log('datestr: '+datestr);
-      this.setActiveItemForToday(qotd, datestr);
+      // this.setActiveItemForToday(qotd, datestr);
+      this.setFirstItemFromSearch(qotd, this.searchStr);
     });
   }
+
+  private setFirstItemFromSearch(qotd: IQuote[], searchstr: string) {
+    console.log("Search all quotes for: "+ searchstr);
+    this.homeIndex = 1;
+    let re = new RegExp(searchstr);
+    for (var i = 0; i < qotd.length; i++) {
+      if (qotd[i].quote.search(re) == -1) {
+        console.log("Does not contain the search string");
+      } else {
+        console.log("CONTAINS the search string");
+        this.activeItem = qotd[i];
+        this.homeIndex = i;
+      }
+    }
+}
 
   private setActiveItemForToday(qotd: IQuote[], datestr: string) {      
     this.homeIndex = 1; // default of date not found
