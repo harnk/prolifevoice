@@ -16,12 +16,23 @@ export class SearchResultsComponent implements OnInit {
   public activeItem: IQuote;
   public datestr = "";
   private homeIndex: number;
+  private searchStr = "";
+  
 
-  constructor(private _quoteService: QuoteService, private _Activatedroute:ActivatedRoute) { 
+  constructor(private _quoteService: QuoteService, 
+              private _Activatedroute:ActivatedRoute) { 
   }
 
   ngOnInit(): void {
     console.log("SearchResultComponent init");
+
+    this._Activatedroute.paramMap.subscribe(params => { 
+      this.searchStr = params.get('searchStr'); 
+    });
+
+    console.log("passed in str = " + this.searchStr);
+    // now need to search for this.searchStr in the quotes
+
     this._quoteService.getQuotes().subscribe(quoteList => this.items = quoteList);
     this._quoteService.getQuoteOfTheDay().subscribe((qotd) => {
       var q = new Date();

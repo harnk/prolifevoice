@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { QuoteService } from '../quote.service';
 import { IQuote } from '../quote';
 
@@ -16,7 +17,10 @@ export class MoreComponent implements OnInit {
   public moreItems = [];
 
   searchForm: FormGroup;
-  constructor(private _quoteService: QuoteService, private _Activatedroute:ActivatedRoute) { }
+  constructor(private _quoteService: QuoteService, 
+              private _Activatedroute:ActivatedRoute,
+              private _router:Router) { 
+  }
 
   ngOnInit(): void {
 
@@ -42,6 +46,7 @@ export class MoreComponent implements OnInit {
     console.log(this.searchForm);
     console.log(this.searchForm.controls.searchText.value);
     console.log(this.searchForm.get('searchText').value);
+    this._router.navigate(['/search-results',this.searchForm.get('searchText').value]);
   }
 
 }

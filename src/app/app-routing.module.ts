@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'more', component: MoreComponent },
   { path: 'more/:id', component: MoreComponent },
   { path: 'search-results', component: SearchResultsComponent },
+  { path: 'search-results/:searchStr', component: SearchResultsComponent },
   // { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
 

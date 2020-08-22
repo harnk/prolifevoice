@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
   constructor(private _quoteService: QuoteService, 
               private _Activatedroute:ActivatedRoute, 
               private modalService: ModalService) { 
+    console.log('constructor running'); 
+    this.registerForPushNotifications();               
   }
 
   ngOnInit(): void {
@@ -34,6 +36,23 @@ export class HomeComponent implements OnInit {
       console.log('datestr: '+datestr);
       this.setActiveItemForToday(qotd, datestr);
     });
+  }
+  
+  private registerForPushNotifications() {
+    if ('serviceWorker' in navigator) {
+      if ('PushManager' in window) {
+        navigator.serviceWorker.register('ServiceWorker.js').then(function(registration) {
+          console.log('state initializing');
+        })
+        .catch(function() {
+          console.log('error handling 01'); //chrome errors here
+        });
+      } else {
+        console.log('error handling 02'); //safari errors here
+      }
+    } else {
+      console.log('error handling 03');
+    }
   }
 
   private setActiveItemForToday(qotd: IQuote[], datestr: string) {      
