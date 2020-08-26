@@ -13,9 +13,11 @@ export class SearchResultsComponent implements OnInit {
   public today = Date.now();
   public dayadjust = 0;
   public items: Array<IQuote> = [];
+  public searchItems: Array<IQuote> = [];
   public activeItem: IQuote;
   public datestr = "";
   private homeIndex: number;
+  private searchCnt: number;
   private searchStr = "";
   
 
@@ -37,9 +39,6 @@ export class SearchResultsComponent implements OnInit {
     this._quoteService.getQuoteOfTheDay().subscribe((qotd) => {
       var q = new Date();
       var tday = new Date(q.getFullYear(),q.getMonth(),q.getDate());
-      var datestr = this.formatDate(tday);
-      console.log('datestr: '+datestr);
-      // this.setActiveItemForToday(qotd, datestr);
       this.setFirstItemFromSearch(qotd, this.searchStr);
     });
   }
@@ -47,42 +46,19 @@ export class SearchResultsComponent implements OnInit {
   private setFirstItemFromSearch(qotd: IQuote[], searchstr: string) {
     console.log("Search all quotes for: "+ searchstr);
     this.homeIndex = 1;
+    this.searchCnt = 0;
     let re = new RegExp(searchstr);
     for (var i = 0; i < qotd.length; i++) {
       if (qotd[i].quote.search(re) == -1) {
         console.log("Does not contain the search string");
       } else {
         console.log("CONTAINS the search string");
+        this.searchCnt += 1;
         this.activeItem = qotd[i];
         this.homeIndex = i;
       }
     }
 }
-
-  private setActiveItemForToday(qotd: IQuote[], datestr: string) {      
-    this.homeIndex = 1; // default of date not found
-    for (var i = 0; i < qotd.length; i++) {
-      if (datestr === qotd[i].post_date) {
-        console.log('FOUND IT ' + datestr);
-        this.activeItem = qotd[i];
-        this.homeIndex = i;
-      }
-    }
-  }
-
-  private formatDate(date) {
-    var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
-
-    return [year, month, day].join('-');
-  }
 
   public previous() {
     const currentIndex = this.items.indexOf(this.activeItem);
