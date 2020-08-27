@@ -78,10 +78,4 @@ export class SearchResultsComponent implements OnInit {
     console.log("next clicked ");
   }
 
-  public home() {
-    this.activeItem = this.searchItems[this.homeIndex];
-    this.currentIndex = 1;
-    console.log("home clicked ");
-  }
-
 }
