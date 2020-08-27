@@ -16,6 +16,7 @@ export class SearchResultsComponent implements OnInit {
   public searchItems: Array<IQuote> = [];
   public activeItem: IQuote;
   public datestr = "";
+  public currentIndex: number;
   private homeIndex: number;
   private searchCnt: number;
   private searchStr = "";
@@ -46,6 +47,7 @@ export class SearchResultsComponent implements OnInit {
   private setFirstItemFromSearch(qotd: IQuote[], searchstr: string) {
     console.log("Search all quotes for: "+ searchstr);
     this.homeIndex = 1;
+    this.currentIndex = 1;
     this.searchCnt = 0;
     let re = new RegExp(searchstr);
     for (var i = 0; i < qotd.length; i++) {
@@ -53,28 +55,32 @@ export class SearchResultsComponent implements OnInit {
         console.log("Does not contain the search string");
       } else {
         console.log("CONTAINS the search string");
-        this.searchCnt += 1;
-        this.activeItem = qotd[i];
+        this.searchItems.push(qotd[i]);
+        this.searchCnt = this.searchItems.length;
+        this.activeItem = this.searchItems[0];
         this.homeIndex = i;
       }
     }
 }
 
   public previous() {
-    const currentIndex = this.items.indexOf(this.activeItem);
-    const newIndex = currentIndex === 0 ? this.items.length - 1 : currentIndex - 1;
-    this.activeItem = this.items[newIndex];
+    const currentIndex = this.searchItems.indexOf(this.activeItem);
+    const newIndex = currentIndex === 0 ? this.searchItems.length - 1 : currentIndex - 1;
+    this.currentIndex = newIndex + 1;
+    this.activeItem = this.searchItems[newIndex];
   }
 
   public next() {
-    const currentIndex = this.items.indexOf(this.activeItem);
-    const newIndex = currentIndex === this.items.length - 1 ? 0 : currentIndex + 1;
-    this.activeItem = this.items[newIndex];
+    const currentIndex = this.searchItems.indexOf(this.activeItem);
+    const newIndex = currentIndex === this.searchItems.length - 1 ? 0 : currentIndex + 1;
+    this.currentIndex = newIndex + 1;
+    this.activeItem = this.searchItems[newIndex];
     console.log("next clicked ");
   }
 
   public home() {
-    this.activeItem = this.items[this.homeIndex];
+    this.activeItem = this.searchItems[this.homeIndex];
+    this.currentIndex = 1;
     console.log("home clicked ");
   }
 
