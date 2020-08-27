@@ -17,8 +17,8 @@ export class SearchResultsComponent implements OnInit {
   public activeItem: IQuote;
   public datestr = "";
   public currentIndex: number;
+  public searchCnt: number;
   private homeIndex: number;
-  private searchCnt: number;
   private searchStr = "";
   
 
