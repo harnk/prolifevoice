@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   public datestr = "";
   private homeIndex: number;
   private currentIndex: number;
+  public moreItems = [];
 
   constructor(private _quoteService: QuoteService, 
               private _Activatedroute:ActivatedRoute, 
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
       var datestr = this.formatDate(tday);
       console.log('datestr: '+datestr);
       this.setActiveItemForToday(qotd, datestr);
+      this.moreItems = this.activeItem.metadata.split(",");
     });
   }
   

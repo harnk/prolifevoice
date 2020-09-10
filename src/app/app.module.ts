@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShowquoteComponent } from './showquote/showquote.component';
 import { QuoteService } from './quote.service';
 import { HomeComponent } from './home/home.component';
-import { MoreComponent } from './more/more.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 
 
@@ -20,7 +19,6 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     BottombarComponent,
     ShowquoteComponent,
     HomeComponent,
-    MoreComponent,
     SearchResultsComponent
   ],
   imports: [

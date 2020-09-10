@@ -17,9 +17,12 @@
       {{ activeItem.author | uppercase }} -- {{ activeItem.id }}
       <!-- {{ authorquote | uppercase }} -->
     </div>
-    <div class="morelink" >
-        <a routerLinkActive="active" [routerLink]="['../more', activeItem.id]">MORE</a>
+
+    <div class="morelink">
+      <a (click)="openModal('more-modal-1')">MORE</a>
     </div>
+    
+      
   </ng-container>
 
   <!-- this next bit shows everything -->
@@ -74,6 +77,41 @@
     </a>
 
   </div>
+</jw-modal>
+
+<jw-modal id="more-modal-1">
+  <a style="color:white" (click)="closeModal('more-modal-1');">X</a>
+  <div style="height:100%">
+
+    <div class="title-above-card">QUOTE'S SOURCE</div>
+    <a class="card" target="_blank" rel="noopener" href="{{ activeItem.link }}">
+      <span>LINK</span>
+    </a>
+
+    <div class="title-above-card">MORE BY</div>
+    <a class="card" target="_blank" rel="noopener" href="http://www.google.com/search?q={{ activeItem.author }}">
+      <span>{{ activeItem.author | uppercase }}</span>
+    </a>
+
+    <div class="title-above-card">MORE ABOUT</div>
+
+    <div class="card" *ngFor="let item of moreItems">
+      <a target="_blank" rel="noopener" href="http://www.google.com/search?q={{item}}">
+        <span>{{ item | uppercase}}</span>  
+      </a>
+    </div>
+      
+      <!-- <div class="title-above-card">SEARCH</div>
+        <div class="card"  >
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+            <input id="searchText" formControlName="searchText" type="text" class="form-control">
+          </form>
+        </div>   -->
+  
+    </div>
+
 </jw-modal>
 
 </div>
