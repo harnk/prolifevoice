@@ -5,21 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from './_modal';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BottombarComponent } from './bottombar/bottombar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ShowquoteComponent } from './showquote/showquote.component';
 import { QuoteService } from './quote.service';
 import { HomeComponent } from './home/home.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    BottombarComponent,
-    ShowquoteComponent,
-    HomeComponent,
-    SearchResultsComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
