@@ -14,8 +14,7 @@
       <img class="qbottom" src="assets/images/quote_bottom.png">
     </div>
     <div class="mainauthor">
-      {{ activeItem.author | uppercase }} -- {{ activeItem.id }}
-      <!-- {{ authorquote | uppercase }} -->
+      {{ activeItem.author | uppercase }} 
     </div>
 
     <div class="morelink">
@@ -25,12 +24,6 @@
       
   </ng-container>
 
-  <!-- this next bit shows everything -->
-        <!-- <ul *ngFor="let item of items">
-            <li class="hideorshow">{{item.quote}} - {{item.author}} -- {{item.post_date}} - {{item.link}} </li>
-        </ul>     -->
-
-<!-- <p>previous - home - next buttons here</p> -->
 <div class="card-container">
   <a class="circle-link" title="Back" (click)="previous()">
     <svg alt="Previous" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path fill="white" d="M14.91 6.71c-.39-.39-1.02-.39-1.41 0L8.91 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L11.03 12l3.88-3.88c.38-.39.38-1.03 0-1.41z"/></svg>    
@@ -60,22 +53,13 @@
         <span>FACEBOOK</span>
       </a>  
     </div>
-
-    <div class="card">
-      <span>INSTAGRAM</span>
-    </div>
     
     <div class="card">
       <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=&Prime;{{ activeItem.quote }}&Prime; {{ activeItem.author}}" class="fb-xfbml-parse-ignore">
         <span>TWITTER</span>
       </a>          
     </div>
-
-    <div class="title-above-card">SIGN UP</div>
-    <a class="card" target="_blank" rel="noopener" href="{{ activeItem.link }}">
-      <span>PUSH NOTIFICATIONS</span>
-    </a>
-
+    
   </div>
 </jw-modal>
 
